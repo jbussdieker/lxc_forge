@@ -8,9 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = LxcForge::VERSION
   spec.authors       = ["Joshua B. Bussdieker"]
   spec.email         = ["jbussdieker@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.summary       = %q{Upload and download LXC containers from S3}
+  spec.homepage      = "https://github.com/jbussdieker/lxc_forge"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
