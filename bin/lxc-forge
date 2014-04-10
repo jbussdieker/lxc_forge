@@ -1,2 +1,8 @@
 #!/usr/bin/env ruby
 require 'lxc_forge'
+
+container = LxcForge::Container.new("precise")
+puts "Compressing..."
+container.compress
+puts "Uploading..."
+container.upload
