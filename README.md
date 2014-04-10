@@ -1,24 +1,26 @@
-# LxcForge
+# LXC Forge
 
-TODO: Write a gem description
+Upload and download LXC containers from S3
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'lxc_forge'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Install the gem:
 
     $ gem install lxc_forge
 
+Configure the settings:
+
+    $ lxc-forge --configure
+
 ## Usage
 
-TODO: Write usage instructions here
+Upload a container to S3:
+
+    $ lxc-forge upload -n mycontainer
+
+Download a container from S3:
+
+    $ lxc-forge download -o mycontainer
 
 ## Contributing
 
