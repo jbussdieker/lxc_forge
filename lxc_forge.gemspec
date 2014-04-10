@@ -21,6 +21,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
   spec.add_runtime_dependency "lxc", "~> 0.6"
-  spec.add_runtime_dependency "archive-tar-minitar", "~> 0.5"
+  spec.add_runtime_dependency "minitar", "~> 0.5"
   spec.add_runtime_dependency "aws-sdk", "~> 1.38"
 end
