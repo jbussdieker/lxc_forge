@@ -1,10 +1,15 @@
 require 'optparse'
 
 module LxcForge
-  module Options
-    def self.parse(argv)
-      options = {}
+  class Options
+    attr_accessor :options
 
+    def initialize(argv)
+      @argv = argv
+      @options = {}
+    end
+
+    def parser
       OptionParser.new do |opts|
         opts.banner = "Usage: lxc-forge ACTION [options]
 
@@ -27,12 +32,17 @@ Actions:
         opts.on("-f", "--[no-]force", "Force overwrite") do |v|
           options[:force] = v
         end
-      end.parse!(argv)
+      end
+    end
 
-      if argv.length == 0
-        raise ArgumentError.new "No action not specified"
-      elsif argv.length == 1
-        options[:command] = argv.first
+    def parse
+      parser.parse!(@argv)
+
+      if @argv.length == 0
+        puts parser.help
+        exit 0
+      elsif @argv.length == 1
+        options[:command] = @argv.first
       else
         raise ArgumentError.new "Multiple actions not supported"
       end

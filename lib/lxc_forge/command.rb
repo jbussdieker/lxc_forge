@@ -11,7 +11,7 @@ module LxcForge
       start = Time.now
       send(options[:command])
       finish = Time.now
-      puts "Completed in #{finish - start} seconds"
+      puts "Completed in #{finish - start} seconds" if options[:verbose]
     end
 
     def container

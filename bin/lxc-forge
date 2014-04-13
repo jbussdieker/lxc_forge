@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require 'lxc_forge'
 
-options = LxcForge::Options.parse(ARGV)
+options = LxcForge::Options.new(ARGV).parse
 config = LxcForge::Config.new(options)
 config.load
 
