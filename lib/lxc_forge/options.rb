@@ -9,9 +9,10 @@ module LxcForge
         opts.banner = "Usage: lxc-forge ACTION [options]
 
 Actions:
-    upload   - Upload an LXC container to S3
-    download - Download an LXC container from S3
-    list     - List available containers on S3
+    configure - Configure LXC Forge settings
+    upload    - Upload an LXC container to S3
+    download  - Download an LXC container from S3
+    list      - List available containers on S3
 
 "
 
