@@ -18,10 +18,13 @@ module LxcForge
       @container ||= LxcForge::Container.new(options[:name], config)
     end
 
-    def prompt_yes_no(prompt)
-      print prompt
-      response = STDIN.gets.chomp()
-      raise "Aborted" unless response == "y"
+    def prompt(msg)
+      print msg
+      STDIN.gets.chomp()
+    end
+
+    def prompt_yes_no(msg)
+      raise "Aborted" unless prompt(msg) == "y"
     end
 
     def upload
@@ -50,6 +53,16 @@ module LxcForge
       container.download
       print "Installing..."
       container.uncompress
+    end
+
+    def configure
+      config = Config.new(options)
+      config.access_key_id = prompt("Access Key ID: ")
+      config.secret_access_key = prompt("Secret Access Key: ")
+      config.region = prompt("Region: ")
+      config.bucket = prompt("Bucket: ")
+      config.save
+      puts "Configuration Saved"
     end
 
     def list

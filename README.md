@@ -26,7 +26,7 @@ Upload a container to S3:
 
 Download a container from S3:
 
-    $ lxc-forge download -o mycontainer
+    $ lxc-forge download -n mycontainer
 
 ## Contributing
 

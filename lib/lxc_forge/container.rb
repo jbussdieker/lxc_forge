@@ -4,7 +4,7 @@ require 'aws-sdk'
 
 module LxcForge
   class Container
-    attr_accessor :name
+    attr_accessor :name, :config
 
     def initialize(name, config)
       @name = name
