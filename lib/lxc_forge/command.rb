@@ -1,8 +1,9 @@
 module LxcForge
   class Command
-    attr_accessor :options
+    attr_accessor :config, :options
 
-    def initialize(options)
+    def initialize(config, options)
+      @config = config
       @options = options
     end
 
@@ -14,7 +15,7 @@ module LxcForge
     end
 
     def container
-      @container ||= LxcForge::Container.new(options[:name])
+      @container ||= LxcForge::Container.new(options[:name], config)
     end
 
     def prompt_yes_no(prompt)

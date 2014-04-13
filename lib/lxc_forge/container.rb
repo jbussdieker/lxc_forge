@@ -6,8 +6,9 @@ module LxcForge
   class Container
     attr_accessor :name
 
-    def initialize(name)
+    def initialize(name, config)
       @name = name
+      @config = config
     end
 
     def lxc
@@ -75,15 +76,20 @@ module LxcForge
       raise "Error uncompressing" unless $?.to_i == 0
     end
 
+    def s3_config
+      {
+        :access_key_id => config.access_key_id,
+        :secret_access_key => config.secret_access_key,
+        :region => config.region
+      }
+    end
+
     def s3
-      AWS::S3.new(
-        :access_key_id => '',
-        :secret_access_key => '',
-        :region => '')
+      AWS::S3.new(s3_config)
     end
 
     def bucket
-      s3.buckets[""]
+      s3.buckets[config.bucket]
     end
 
     def obj

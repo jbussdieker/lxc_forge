@@ -2,9 +2,11 @@
 require 'lxc_forge'
 
 options = LxcForge::Options.parse(ARGV)
+config = LxcForge::Config.new
+config.load("config/application.yml")
 
 begin
-  LxcForge::Command.new(options).run
+  LxcForge::Command.new(config, options).run
 rescue Exception => e
   if options[:verbose]
     raise e
