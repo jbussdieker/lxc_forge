@@ -1,8 +1,15 @@
 #!/usr/bin/env ruby
 require 'lxc_forge'
 
-container = LxcForge::Container.new("precise")
-puts "Compressing..."
-container.compress
-puts "Uploading..."
-container.upload
+options = LxcForge::Options.parse(ARGV)
+
+begin
+  LxcForge::Command.new(options).run
+rescue Exception => e
+  if options[:verbose]
+    raise e
+  else
+    $stderr.puts e.message
+    exit 1
+  end
+end
