@@ -25,12 +25,14 @@ module LxcForge
       }
     end
 
+    # TODO: Break up
     def save
       File.open(config_file, 'w') do |f|
         f.write(to_hash.to_yaml)
       end
     end
 
+    # TODO: Break up
     def load_file(filename)
       data = File.read(filename)
       c = YAML.load(data)

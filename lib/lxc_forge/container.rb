@@ -48,6 +48,7 @@ module LxcForge
       )
     end
 
+    # TODO: Break up
     def compress
       Dir.chdir "/var/lib/lxc"
       count = 0
@@ -62,6 +63,7 @@ module LxcForge
       raise "Error compressing" unless $?.to_i == 0
     end
 
+    # TODO: Break up
     def uncompress
       Dir.chdir "/var/lib/lxc"
       count = 0
@@ -96,6 +98,7 @@ module LxcForge
       bucket.objects[@name]
     end
 
+    # TODO: Break up
     def upload
       count = 0
       File.open(tmp_file, 'r') do |file|
@@ -108,6 +111,7 @@ module LxcForge
       puts
     end
 
+    # TODO: Break up
     def download
       count = 0
       File.open(tmp_file, 'wb') do |file|
